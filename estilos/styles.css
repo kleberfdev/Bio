@@ -1,17 +1,42 @@
 *{
-    font-family: Arial, Helvetica, sans-serif
-    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
 }
 body {
-    background-color: darkred
+    background-color: darkred;
 }
 main{
     background-color: white;
-    widht:500px;
+    width:500px;
     margin: auto;
     padding: 10px;
     box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.18)
 }
-img.lado {
+img.esquerdo {
     float: left;
+    margin-right: 10px;
 }
+img.direito {
+    float: right;
+    margin-right: 10px;
+}
+img.paragrafo {
+    clear: both;
+}
+div.links {
+    display: flex;
+    justify-content: center;
+  }
+  
+  div.links a {
+    margin: 0 1px;
+  }
+  
+  article {
+    margin-bottom: 20px;
+  }
+  
+  
+  
+  
+  
+  
