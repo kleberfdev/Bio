@@ -134,6 +134,11 @@ div.links {
   justify-content: center;
   margin-top: 20px;
 }
+div.text {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
 
 div.links a {
   margin: 0 10px;
