@@ -1,14 +1,23 @@
-/* Estilização básica do componente Tabs */
+@media (max-width: 768px) {
+  .tabs li {
+    width: 48%; /* define a largura para dispositivos menores */
+    margin-bottom: 10px; /* adiciona um espaçamento entre as abas */
+  }
+}
 .tabs ul {
   list-style: none;
   margin: 0;
   padding: 0;
+  display: flex; /* adiciona um container flexível */
+  justify-content: space-between; /* distribui os itens com espaçamento igual */
 }
 
 .tabs li {
   display: inline-block;
   margin: 0;
   padding: 0;
+  width: 30%; /* define a largura dos elementos para que fiquem responsivos */
+  text-align: center; /* centraliza o texto horizontalmente */
 }
 
 .tabs a {
@@ -31,10 +40,11 @@
 }
 
 .tab-content {
-  display: none;
   padding: 20px;
   background-color: #fff;
   border-radius: 0 5px 5px 5px;
+  display: flex;
+  justify-content: center;
 }
 
 .tab-content.active {
@@ -94,20 +104,30 @@ h1 {
   margin-top: 20px;
   font-size: 30px;
 }
+div.imagens {
+  max-width: 100%;
+  overflow-x: auto;
+  white-space: nowrap;
+  display: flex;
+  justify-content: center;
+}
 
 img.esquerdo {
-  float: left;
+  display: block;
   margin-right: 10px;
 }
 
 img.direito {
-  float: right;
+  display: inline-block;
+  vertical-align: middle;
   margin-right: 10px;
 }
 
 img.paragrafo {
+  height: 100;
   clear: both;
 }
+
 
 div.links {
   display: flex;
