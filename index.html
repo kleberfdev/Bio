@@ -6,11 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meu Perfil</title>
     <link rel="stylesheet" href="estilos/styles.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
+  
     <main>
         <header>
-            <h1>Quem sou eu? / Who am I? / ¿Quien soy yo?</h1>
+          <div class="tabs">
+            <ul>
+              <li class="active"><a href="#portugues"><h1>Quem sou eu?</h1></a></li>
+              <li><a href="#ingles"><h1>Who am I?</h1></a></li>
+              <li><a href="#espanhol"><h1>¿Quien soy yo?</h1></a></li>
+            </ul>
+            </div>
             <hr>
             <div>
                 <img class="paragrafo" height="100">
@@ -34,13 +42,35 @@
         </header>
         <br><br><br><br><br>
         <hr>
-            <h4><p>Meu nome é Kleber Figueredo e estou no início do mundo da programação. Ser futuro Backend e Eng de Soft é um dos meus propósitos.</p>  
-            <hr>          
-            <p>My name is Kleber Figueredo and I'm at the beginning of the programming world. Being a future Dev Backend and Software Engineer is one of my goals</p>
-            <hr>
-            <p>Mi nombre es Kleber Figueredo y estoy en los inicios del mundo de la programación. Ser un futuro Dev Backend e Ingeniero de software es uno de mis objetivos</p>
-            <hr></h4>
+        <div id="portugues" class="tab-content active">
+          <h4><p>Meu nome é Kleber Figueredo e estou no início do mundo da programação. Ser futuro Backend e Eng de Soft é um dos meus propósitos.</p></h4>
+        </div> 
+        <div id="ingles" class="tab-content">
+          <h4><p>My name is Kleber Figueredo and I'm at the beginning of the programming world. Being a future Dev Backend and Software Engineer is one of my goals</p></h4>
+        </div> 
+        <div id="espanhol" class="tab-content">
+          <h4><p>Mi nombre es Kleber Figueredo y estoy en los inicios del mundo de la programación. Ser un futuro Dev Backend e Ingeniero de software es uno de mis objetivos</p></h4>
+        </div>
+        <script>
+          const tabs = document.querySelectorAll('.tabs li');
+          const tabContents = document.querySelectorAll('.tab-content');
+
+          tabs.forEach((tab, index) => {
+            tab.addEventListener('click', () => {
+              tabs.forEach((tab) => {
+                tab.classList.remove('active');
+              });
+              tab.classList.add('active');
+              tabContents.forEach((content) => {
+                content.style.display = "none";
+              });
+              tabContents[index].style.display = "block";
+            });
+          });
+
+      </script>
         <article>
+          
             <div class="links">
               <a href="https://github.com/kleberfdev" target="_blank">
                 <img src="estilos/github.png" alt="" style="max-width: 100%;">
@@ -53,3 +83,7 @@
               </a>
             </div>
           </article>
+    </main>
+
+  </body>
+</html>

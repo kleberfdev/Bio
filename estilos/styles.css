@@ -1,69 +1,136 @@
+/* Estilização básica do componente Tabs */
+.tabs ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.tabs li {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+}
+
+.tabs a {
+  display: block;
+  padding: 10px;
+  background-color: #eee;
+  color: #333;
+  text-decoration: none;
+  border-radius: 5px 5px 0 0;
+}
+
+.tabs a:hover {
+  background-color: #ddd;
+}
+
+.tabs .active a {
+  background-color: #fff;
+  border-bottom-color: transparent;
+  cursor: default;
+}
+
+.tab-content {
+  display: none;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 0 5px 5px 5px;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+/* Estilização específica para cada idioma */
+#portugues {
+  display: block;
+}
+
+#ingles {
+  display: none;
+}
+
+#espanhol {
+  display: none;
+}
+
+li.active a[href="#portugues"] {
+  background-color: #fff;
+}
+
+li.active a[href="#ingles"] {
+  background-color: #fff;
+}
+
+li.active a[href="#espanhol"] {
+  background-color: #fff;
+}
+
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
-  
-  body {
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: darkred;
-  }
-  
-  main {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.18);
-    background-color: white;
-  }
-  
-  header {
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  
-  h1 {
-    margin-top: 20px;
-    font-size: 30px;
-  }
-  
-  img.esquerdo {
-    float: left;
-    margin-right: 10px;
-  }
-  
-  img.direito {
-    float: right;
-    margin-right: 10px;
-  }
-  
-  img.paragrafo {
-    clear: both;
-  }
-  
-  div.links {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
-  }
-  
-  div.links a {
-    margin: 0 10px;
-  }
-  
-  article {
-    margin-bottom: 20px;
-  }
-  
-  hr {
-    margin: 20px 0;
-    border: none;
-    border-bottom: 1px solid black;
-  }
-  
-  p {
-    font-size: 18px;
-    line-height: 1.5;
-    margin-bottom: 10px;
-  }
-  
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: darkred;
+}
+
+main {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.18);
+  background-color: white;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+h1 {
+  margin-top: 20px;
+  font-size: 30px;
+}
+
+img.esquerdo {
+  float: left;
+  margin-right: 10px;
+}
+
+img.direito {
+  float: right;
+  margin-right: 10px;
+}
+
+img.paragrafo {
+  clear: both;
+}
+
+div.links {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+div.links a {
+  margin: 0 10px;
+}
+
+article {
+  margin-bottom: 20px;
+}
+
+hr {
+  margin: 20px 0;
+  border: none;
+  border-bottom: 1px solid black;
+}
+
+p {
+  font-size: 18px;
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
