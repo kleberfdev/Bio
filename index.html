@@ -106,10 +106,13 @@
           }
           
           // Função para obter o número de acessos a partir do cookie
-          function getAccessCount() {
-            var count = parseInt(localStorage.getItem('accessCount'));
-            return isNaN(count) ? 0 : count;
-          }
+  function getAccessCount() {
+    var count = parseInt(localStorage.getItem('accessCount'));
+    return isNaN(count) ? 0 : count;
+  }
+
+  // Exibe o número de visitantes quando a página é carregada
+  document.getElementById('access-count').textContent = getAccessCount();
           
           // Função para atualizar o número de acessos se o IP mudar
           function updateAccessCount() {
@@ -132,7 +135,7 @@
           <hr>
           <div class="text">
 
-        <p><h5>Obirgado visitante número <span id="access-count"></span></h5></p>
+        <p><h5>Obrigado visitante número <span id="access-count"></span></h5></p>
           </div>
     </main>
   </body>
