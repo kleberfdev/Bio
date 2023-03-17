@@ -59,7 +59,8 @@
           const tabContents = document.querySelectorAll('.tab-content');
 
           tabs.forEach((tab, index) => {
-            tab.addEventListener('click', () => {
+            tab.addEventListener('click', (event) => {
+              event.preventDefault();
               tabs.forEach((tab) => {
                 tab.classList.remove('active');
               });
@@ -70,6 +71,7 @@
               tabContents[index].style.display = "block";
             });
           });
+
 
       </script>
         <article>
