@@ -137,6 +137,38 @@
             // Quando a página carregar, obter o número de visitantes e incrementá-lo
             getVisitorCount();
             getIP(incrementVisitorCount);
+            // Função para escrever o número de visitantes em um arquivo .txt
+function writeVisitorCountToFile(count) {
+  window.requestFileSystem = window.requestFileSystem || window.webkitRequestFileSystem;
+  window.requestFileSystem(window.TEMPORARY, 1024 * 1024, function(fs) {
+    fs.root.getFile('visitorCount.txt', {create: true}, function(fileEntry) {
+      fileEntry.createWriter(function(fileWriter) {
+        fileWriter.seek(fileWriter.length);
+        fileWriter.write(count + '\n');
+      }, errorHandler);
+    }, errorHandler);
+  }, errorHandler);
+}
+
+// Função para tratar erros
+function errorHandler(error) {
+  console.error('Erro: ' + error.name);
+}
+
+// Função para incrementar o número de visitantes
+function incrementVisitorCount(ip) {
+  var count = localStorage.getItem('visitorCount');
+  if (count) {
+    count = parseInt(count) + 1;
+  } else {
+    count = 1;
+  }
+  localStorage.setItem('visitorCount', count);
+  document.getElementById('visitorCount').textContent = count;
+  writeVisitorCountToFile(count); // chama a função para gravar o número de visitantes em um arquivo .txt
+  sendVisitorData(ip);
+}
+
           </script>
           
         <hr>
