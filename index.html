@@ -91,16 +91,61 @@
               </a>
             </div>
           </article>
-          <p>Você é o visitante de número <span id="counter">0</span></p>
-
-<script>
-    fetch("http://localhost:8080").then(function(response) {
-        return response.text();
-    }).then(function(text) {
-        document.getElementById("counter").innerHTML = text;
-    });
-</script>
-
+          <script>
+            // Função para obter o endereço IP do usuário
+            function getIP(callback) {
+              var request = new XMLHttpRequest();
+              request.open('GET', 'https://api.ipify.org?format=json', true);
+              request.onload = function() {
+                if (request.status >= 200 && request.status < 400) {
+                  var data = JSON.parse(request.responseText);
+                  callback(data.ip);
+                }
+              };
+              request.onerror = function() {
+                console.error('Erro ao obter o endereço IP do usuário');
+              };
+              request.send();
+            }
+      
+            // Função para obter o número de visitantes e exibi-lo na página
+            function getVisitorCount() {
+              var count = localStorage.getItem('visitorCount');
+              if (count) {
+                document.getElementById('visitorCount').textContent = count;
+              }
+            }
+      
+            // Função para incrementar o número de visitantes
+            function incrementVisitorCount(ip) {
+              var count = localStorage.getItem('visitorCount');
+              if (count) {
+                count = parseInt(count) + 1;
+              } else {
+                count = 1;
+              }
+              localStorage.setItem('visitorCount', count);
+              document.getElementById('visitorCount').textContent = count;
+              sendVisitorData(ip, count);
+            }
+      
+            // Função para enviar os dados do visitante para o servidor
+            function sendVisitorData(ip, count) {
+              var xhr = new XMLHttpRequest();
+              xhr.open("POST", "contador.php");
+              xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+              xhr.send("ip=" + ip + "&count=" + count);
+            }
+      
+            // Quando a página carregar, obter o número de visitantes e incrementá-lo
+            getVisitorCount();
+            getIP(incrementVisitorCount);
+          </script>
+                
+        <hr>
+        <div class="text">
+          <p><h5>Obrigado visitante número <span id="visitorCount"></span></h5></p>
+        </div>
         
           
     </main>
