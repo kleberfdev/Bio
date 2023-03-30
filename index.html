@@ -94,7 +94,7 @@
           </article>
         </main>
         
-        <script src="sql.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.6.0/sql-wasm.js"></script>
 <script>
   var visitorIp = '';
   fetch('https://api.ipify.org')
@@ -104,13 +104,14 @@
     .then(function(data) {
       visitorIp = data;
       console.log('Visitor IP:', visitorIp);
+      console.log('teste');
 
       var db = new SQL.Database();
       db.run("CREATE TABLE IF NOT EXISTS visitors (ip TEXT)");
       db.run("INSERT INTO visitors (ip) VALUES (?)", [visitorIp]);
       var result = db.exec("SELECT COUNT(*) as count FROM visitors");
       var count = result[0].values[0][0];
-      console.log(count);
+      
       document.getElementById("counter").innerHTML = count;
     });
 </script>
